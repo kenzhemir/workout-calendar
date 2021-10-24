@@ -90,7 +90,10 @@
 
         fetch('https://gist.githubusercontent.com/kenzhemir/1123b28f7f597f71e49678bda5fec0f2/raw/data.json').then((response) => {
             response.json().then(fillCalendar);
-        }).catch((error) => console.log(error));
+        }).catch((error) => {
+            console.log(error);
+            calendarElement.innerHTML = "<div>Oopsie, something went wrong :(</div><div>You can report it in <a href='https://t.me/kenzhemir'>Telegram</a></div>";
+        });
 
     </script>
     <style>
@@ -112,7 +115,6 @@
 
         * {
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            vertical-align: middle;
         }
 
         a {
@@ -150,6 +152,7 @@
         .day img {
             width: 20px;
             height: 20px;
+            vertical-align: middle;
         }
 
         .day:last-child {
